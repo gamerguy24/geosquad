@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GeoSquad</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="logo">
+        <h1>GeoSquad</h1>
+      </div>
+      
+      <div id="login-panel" class="panel">
+        <h2>Welcome!</h2>
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        
+        <div class="action-buttons">
+          <button id="create-circle-btn" class="btn primary">Create New Circle</button>
+          <div class="or-divider">OR</div>
+          <div class="form-group">
+            <label for="circle-code">Join with Code</label>
+            <input type="text" id="circle-code" placeholder="Enter 6-digit code">
+            <button id="join-circle-btn" class="btn">Join Circle</button>
+          </div>
+        </div>
+      </div>
+      
+      <div id="circle-panel" class="panel hidden">
+        <div class="circle-info">
+          <h2>Your Circle</h2>
+          <div class="code-display">
+            <span>Share Code:</span>
+            <span id="display-code" class="code"></span>
+            <button id="copy-code-btn" class="btn small">Copy</button>
+          </div>
+        </div>
+        
+        <div class="members-list">
+          <h3>Members</h3>
+          <ul id="members-container"></ul>
+        </div>
+        
+        <button id="leave-circle-btn" class="btn danger">Leave Circle</button>
+      </div>
+    </div>
+    
+    <div class="map-container">
+      <div id="map"></div>
+      <div class="map-controls">
+        <button id="center-map-btn" class="map-btn">Center Map</button>
+        <button id="update-location-btn" class="map-btn">Update My Location</button>
+      </div>
+    </div>
+  </div>
+  
+  <div id="notifications" class="notifications"></div>
+  
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
